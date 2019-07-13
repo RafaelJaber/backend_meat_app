@@ -6,10 +6,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = config('APP_KEY')
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '192.168.50.63',
+    '192.168.50.123',
     'localhost'
 ]
 
@@ -113,10 +114,9 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    'statics'
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'statics')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "statics"), )
+
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = 'media'
