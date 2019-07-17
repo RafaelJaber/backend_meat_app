@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = config('APP_KEY')
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '192.168.50.63',
@@ -26,15 +26,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'rest_framework',
-    'rest_framework.authtoken',
-    'backend.apps.core',
+    'core',
     'backend.apps.restaurant',
     'backend.apps.menu',
     'backend.apps.reviews',
     'backend.apps.orders',
     'backend.apps.orders_items',
     'corsheaders',
-
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -105,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-BR'
 
 TIME_ZONE = 'UTC'
 
@@ -135,3 +134,5 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:8080',
     'http://192.168.50.63:8080'
 )
+
+AUTH_USER_MODEL = 'core.User'

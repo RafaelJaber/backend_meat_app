@@ -1,5 +1,7 @@
 from django.db import models
 from backend.apps.orders_items.models import OrderItem
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 
 class Order(models.Model):
@@ -13,6 +15,7 @@ class Order(models.Model):
         (CART_MEAL, 'Cartão Refeição'),
     )
 
+    user = models.ForeignKey(User, verbose_name='Usuário', on_delete=models.CASCADE)
     name = models.CharField(verbose_name='Nome', max_length=150)
     email = models.CharField(verbose_name='Email', max_length=100)
     address = models.CharField(verbose_name='Endereço', max_length=100)
